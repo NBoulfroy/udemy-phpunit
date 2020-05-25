@@ -1,0 +1,11 @@
+###> PhpStorm ###
+/.idea
+###< PhpStorm ###
+
+###> Composer ###
+/vendor/
+###< Composer ###
+
+###> phpunit/phpunit ###
+/phpunit.xml
+###< phpunit/phpunit ###
