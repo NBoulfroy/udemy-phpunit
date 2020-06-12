@@ -6,13 +6,15 @@
  * @File    : FunctionsTest.php
  * @Author  : BOULFROY Nicolas
  * @Create  : 2020/05/22
+ * @Create  : 2020/06/12
  */
 
 namespace Tests;
 
 use PHPUnit\Framework\TestCase;
+use src\Functions;
 
-require 'functions.php';
+require 'vendor/autoload.php';
 
 class FunctionsTest extends TestCase
 {
@@ -21,8 +23,8 @@ class FunctionsTest extends TestCase
      */
     public function testAddReturnsTheCorrectSum()
     {
-        $this->assertEquals(4, add(2, 2));
-        $this->assertEquals(8, add(4, 4));
+        $this->assertEquals(4, Functions::add(2, 2));
+        $this->assertEquals(8, Functions::add(4, 4));
     }
 
     /**
@@ -30,6 +32,6 @@ class FunctionsTest extends TestCase
      */
     public function testAddReturnsTheIncorrectSum()
     {
-        $this->assertNotEquals(4, add(2, 1));
+        $this->assertNotEquals(4, Functions::add(2, 1));
     }
 }
