@@ -6,7 +6,10 @@
  * @File    : User.php
  * @Author  : BOULFROY Nicolas
  * @Create  : 2020/05/22
+ * @Update  : 2020/06/12
  */
+
+namespace Src;
 
 class User
 {
@@ -21,6 +24,6 @@ class User
      */
     public function getFullName(): string
     {
-        return strtoupper($this->lastName).' '.ucfirst($this->firstName);
+        return trim(ucfirst($this->firstName).' '.strtoupper($this->lastName));
     }
 }
