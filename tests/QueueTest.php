@@ -12,6 +12,7 @@ require 'vendor/autoload.php';
 
 use PhpUnit\Framework\TestCase;
 use Src\Queue;
+use Src\Exception\QueueException;
 
 class QueueTest extends TestCase
 {
@@ -42,6 +43,9 @@ class QueueTest extends TestCase
         $this->assertEquals(0, self::$queue->getCount());
     }
 
+    /**
+     * @throws QueueException
+     */
     public function testAnItemIsAddedToTheQueue()
     {
         self::$queue->push('green');
@@ -56,11 +60,44 @@ class QueueTest extends TestCase
         $this->assertEquals(0, self::$queue->getCount());
     }
 
+    /**
+     * @throws QueueException
+     */
     public function testAnItemIsRemovedFromTheFrontOfTheQueue()
     {
         self::$queue->push('first');
         self::$queue->push('second');
 
         $this->assertEquals('first', self::$queue->pop());
+    }
+
+    /**
+     * @return Queue
+     *
+     * @throws QueueException
+     */
+    public function testMaxNumberOfItemsCanBeAdded(): Queue
+    {
+        for ($i = 0; $i < Queue::MAX_ITEMS; ++$i) {
+            self::$queue->push($i);
+        }
+
+        $this->assertEquals(Queue::MAX_ITEMS, self::$queue->getCount());
+
+        return self::$queue;
+    }
+
+    /**
+     * @throws QueueException
+     */
+    public function testExceptionThrownWhenAddingAnItemToAFullQueue()
+    {
+        for ($i  = 0; $i < 10; ++$i) {
+            if ($i >= Queue::MAX_ITEMS) {
+                $this->expectException(QueueException::class);
+            }
+
+            self::$queue->push($i);
+        }
     }
 }
