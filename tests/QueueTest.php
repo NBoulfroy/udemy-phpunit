@@ -15,44 +15,45 @@ use Src\Queue;
 
 class QueueTest extends TestCase
 {
+    /** @var Queue $queue */
+    private $queue;
+
     /**
-     * @return Queue
+     * Initialize fixture.
      */
-    public function testNewQueueIsEmpty(): Queue
+    protected function setUp(): void
     {
-        $queue = new Queue();
+        $this->queue = new Queue();
 
-        $this->assertEquals(0, $queue->getCount());
-
-        return $queue;
+        parent::setUp();
     }
 
     /**
-     * @param Queue $queue
-     *
-     * @return Queue
-     *
-     * @depends testNewQueueIsEmpty
-     * Needs to pass parameter in function from defined previous method
+     * Destroy fixture.
      */
-    public function testAnItemIsAddedToTheQueue(Queue $queue): Queue
+    public function tearDown(): void
     {
-        $queue->push('green');
+        unset($this->queue);
 
-        $this->assertEquals(1, $queue->getCount());
-
-        return $queue;
+        parent::tearDown();
     }
 
-    /**
-     * @param Queue $queue
-     *
-     * @depends testAnItemIsAddedToTheQueue
-     */
-    public function testAnItemIsRemovedFromTheQueue(Queue $queue)
+    public function testNewQueueIsEmpty()
     {
-        $queue->pop();
+        $this->assertEquals(0, $this->queue->getCount());
+    }
 
-        $this->assertEquals(0, $queue->getCount());
+    public function testAnItemIsAddedToTheQueue()
+    {
+        $this->queue->push('green');
+
+        $this->assertEquals(1, $this->queue->getCount());
+    }
+
+    public function testAnItemIsRemovedFromTheQueue()
+    {
+        $this->queue->pop();
+
+        $this->assertEquals(0, $this->queue->getCount());
     }
 }
