@@ -19,12 +19,17 @@ Executes all tests from a specific directory:
 phpunit tests/
 ```
 
+Executes all tests from vendor:
+```
+phpunit --bootstrap='vendor/autoload.php'
+```
+
 Executes a specific test:
 ```
 phpunit tests/ --fiter=testReturnsFullName
 ```
 
-Executes tests with colors in command line:
+Executes test with colors in command line:
 ```
 phpunit tests/ --color
 ```
