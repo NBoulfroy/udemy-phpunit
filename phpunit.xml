@@ -1,5 +1,5 @@
 <?xml version="1.0" encoding="UTF-8" ?>
-<!-- Defines basic options -->
+<!-- Defines basic options, it is possible to set bootstrap="vendor/autoload.php" in attributes. -->
 <phpunit colors="true" verbose="true">
     <!-- Defines where tests are -->
     <testsuite name="Test suite">
