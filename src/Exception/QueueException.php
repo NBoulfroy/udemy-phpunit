@@ -8,7 +8,7 @@
  * @Create  : 2020/06/19
  */
 
-namespace Src\Exception;
+namespace Exception;
 
 use \Exception;
 

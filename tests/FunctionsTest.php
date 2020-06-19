@@ -12,7 +12,7 @@
 namespace Tests;
 
 use PHPUnit\Framework\TestCase;
-use Src\Functions;
+use Functions;
 
 require 'vendor/autoload.php';
 

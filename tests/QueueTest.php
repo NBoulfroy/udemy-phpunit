@@ -11,8 +11,8 @@
 require 'vendor/autoload.php';
 
 use PhpUnit\Framework\TestCase;
-use Src\Queue;
-use Src\Exception\QueueException;
+use Queue;
+use Exception\QueueException;
 
 class QueueTest extends TestCase
 {

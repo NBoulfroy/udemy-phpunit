@@ -9,8 +9,6 @@
  * @Create  : 2020/06/12
  */
 
-namespace Src;
-
 class Functions
 {
     /**

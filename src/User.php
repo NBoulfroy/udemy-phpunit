@@ -9,8 +9,6 @@
  * @Update  : 2020/06/12
  */
 
-namespace Src;
-
 class User
 {
     /** @var string $firstName */

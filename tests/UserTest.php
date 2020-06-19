@@ -11,7 +11,7 @@
 
 namespace Tests;
 
-use Src\User;
+use User;
 use PHPUnit\Framework\TestCase;
 
 require 'vendor/autoload.php';

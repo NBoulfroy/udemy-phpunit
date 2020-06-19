@@ -5,9 +5,7 @@
  * A first-in, first-out data structure
  */
 
-namespace Src;
-
-use Src\Exception\QueueException;
+use Exception\QueueException;
 
 class Queue
 {
