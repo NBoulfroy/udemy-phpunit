@@ -28,3 +28,5 @@ Executes tests with colors in command line:
 ```
 phpunit tests/ --color
 ```
+
+More information about phpunit.xml file, see this [link](https://phpunit.readthedocs.io/en/9.2/configuration.html).
