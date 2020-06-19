@@ -7,8 +7,13 @@
 
 namespace Src;
 
+use Src\Exception\QueueException;
+
 class Queue
 {
+    /** @var int MAX_ITEMS - Maximums items authorised in queue */
+    public const MAX_ITEMS = 5;
+
     /** @var array $items - Queue items */
     protected $items;
 
@@ -24,9 +29,15 @@ class Queue
      * Add an item to the end of the queue
      *
      * @param int|string $item - The item
+     *
+     * @throws QueueException
      */
     public function push($item)
     {
+        if ($this->getCount() === self::MAX_ITEMS) {
+            throw new QueueException();
+        }
+
         $this->items[] = $item;
     }
 
