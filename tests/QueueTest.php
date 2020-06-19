@@ -16,52 +16,51 @@ use Src\Queue;
 class QueueTest extends TestCase
 {
     /** @var Queue $queue */
-    private $queue;
+    protected static $queue;
 
-    /**
-     * Initialize fixture.
-     */
-    protected function setUp(): void
+    public static function setUpBeforeClass(): void
     {
-        $this->queue = new Queue();
-
-        parent::setUp();
+        static::$queue = new Queue();
     }
 
-    /**
-     * Destroy fixture.
-     */
+    public function setUp(): void
+    {
+        self::$queue->clear();
+    }
+
+    public static function tearDownAfterClass(): void
+    {
+        static::$queue = null;
+    }
+
     public function tearDown(): void
     {
-        unset($this->queue);
-
-        parent::tearDown();
     }
 
     public function testNewQueueIsEmpty()
     {
-        $this->assertEquals(0, $this->queue->getCount());
+        $this->assertEquals(0, self::$queue->getCount());
     }
 
     public function testAnItemIsAddedToTheQueue()
     {
-        $this->queue->push('green');
+        self::$queue->push('green');
 
-        $this->assertEquals(1, $this->queue->getCount());
+        $this->assertEquals(1, self::$queue->getCount());
     }
 
     public function testAnItemIsRemovedFromTheQueue()
     {
-        $this->queue->pop();
+        self::$queue->pop();
 
-        $this->assertEquals(0, $this->queue->getCount());
+        $this->assertEquals(0, self::$queue->getCount());
     }
 
     public function testAnItemIsRemovedFromTheFrontOfTheQueue()
     {
-        $this->queue->push('first');
-        $this->queue->push('second');
+        self::$queue->push('first');
+        self::$queue->push('second');
 
-        $this->assertEquals('first', $this->queue->pop());
+        $this->assertEquals('first', self::$queue->pop());
     }
 }
