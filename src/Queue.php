@@ -9,17 +9,21 @@ namespace Src;
 
 class Queue
 {
+    /** @var array $items - Queue items */
+    protected $items;
 
     /**
-     * Queue items
-     * @var array
+     * Queue constructor.
      */
-    protected $items = [];
+    public function __construct()
+    {
+        $this->items = [];
+    }
 
     /**
      * Add an item to the end of the queue
      *
-     * @param mixed $item The item
+     * @param int|string $item - The item
      */
     public function push($item)
     {
@@ -29,7 +33,7 @@ class Queue
     /**
      * Take an item off the head of the queue
      *
-     * @return mixed The item
+     * @return int|string - The item
      */
     public function pop()
     {
@@ -39,10 +43,18 @@ class Queue
     /**
      * Get the total number of items in the queue
      *
-     * @return integer The number of items
+     * @return int - The number of items
      */
-    public function getCount()
+    public function getCount(): int
     {
         return count($this->items);
+    }
+
+    /**
+     * Reset items array.
+     */
+    public function clear(): void
+    {
+        $this->items = [];
     }
 }
