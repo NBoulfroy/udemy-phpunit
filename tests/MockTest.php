@@ -18,7 +18,7 @@ require 'vendor/autoload.php';
 class MockTest extends TestCase
 {
     /**
-     * Create mock is necessary when a class use dependencies who are problematic (database, e-mail, etc.).
+     * Create mock is necessary when a class use dependencies who are "problematic" (database, e-mail, etc.).
      */
     public function testMock()
     {
