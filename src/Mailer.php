@@ -20,7 +20,7 @@ class Mailer
     {
         sleep(3);
 
-        echo 'send'.$message.' to '.$email;
+        echo ' send '.$message.' to '.$email;
 
         return true;
     }
