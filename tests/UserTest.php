@@ -48,12 +48,15 @@ class UserTest extends TestCase
         $user = new User();
 
         $mockMailer = $this->createMock(Mailer::class);
-        $mockMailer->method('sendMessage')
+        $mockMailer
+            ->expects($this->once())
+            ->method('sendMessage')
+            ->with($this->equalTo('nicolas@example.com'), $this->equalTo('Hello'))
             ->willReturn(true);
 
         $user->email = 'nicolas@example.com';
         $user->setMailer($mockMailer);
-
-        $this->assertTrue($user->notify('hello'));
+ 
+        $this->assertTrue($user->notify('Hello'));
     }
 }
