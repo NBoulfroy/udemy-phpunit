@@ -8,6 +8,8 @@
  * @Create  : 2020/06/26
  */
 
+use Exception\MailerException;
+
 class Mailer
 {
     /**
@@ -15,13 +17,19 @@ class Mailer
      * @param string $message The message
      *
      * @return bool
+     *
+     * @throws MailerException
      */
-    public function sendMessage(string $email, string $message): bool
+    public function sendMessage(string $email = null, string $message = null): bool
     {
-        sleep(3);
+        if (null !== $email) {
+            sleep(3);
 
-        echo ' send '.$message.' to '.$email;
+            echo ' send '.$message.' to '.$email;
 
-        return true;
+            return true;
+        }
+
+        throw new MailerException();
     }
 }
