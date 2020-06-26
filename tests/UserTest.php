@@ -56,7 +56,7 @@ class UserTest extends TestCase
 
         $user->email = 'nicolas@example.com';
         $user->setMailer($mockMailer);
- 
+
         $this->assertTrue($user->notify('Hello'));
     }
 }
