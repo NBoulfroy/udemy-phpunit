@@ -11,6 +11,7 @@
 
 namespace Tests;
 
+use Exception\MailerException;
 use User;
 use PHPUnit\Framework\TestCase;
 use Mailer;
@@ -46,8 +47,8 @@ class UserTest extends TestCase
     public function testNotificationIsSent()
     {
         $user = new User();
-
         $mockMailer = $this->createMock(Mailer::class);
+
         $mockMailer
             ->expects($this->once())
             ->method('sendMessage')
@@ -58,5 +59,20 @@ class UserTest extends TestCase
         $user->setMailer($mockMailer);
 
         $this->assertTrue($user->notify('Hello'));
+    }
+
+    public function testCannotNotifyUserWithNoEmail()
+    {
+        $user = new user();
+        $mockMailer = $this->getMockBuilder(Mailer::class)
+            ->setMethods(['sendMessage'])
+            ->getMock()
+        ;
+
+        $user->setMailer($mockMailer);
+
+        $this->expectException(MailerException::class);
+
+        $user->notify("Hello");
     }
 }
