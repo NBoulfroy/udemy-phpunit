@@ -65,7 +65,7 @@ class UserTest extends TestCase
     {
         $user = new user();
         $mockMailer = $this->getMockBuilder(Mailer::class)
-            ->setMethods(['sendMessage'])
+            ->setMethods(null)
             ->getMock()
         ;
 
