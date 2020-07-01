@@ -6,7 +6,7 @@
  * @File    : UserTest.php
  * @Author  : BOULFROY Nicolas
  * @Create  : 2020/05/22
- * @Update  : 2020/06/26
+ * @Update  : 2020/06/30
  */
 
 namespace Tests;
@@ -44,6 +44,9 @@ class UserTest extends TestCase
         $this->assertEquals('', $user->getFullName());
     }
 
+    /**
+     * Test function with basic mock object creation.
+     */
     public function testNotificationIsSent()
     {
         $user = new User();
@@ -61,6 +64,9 @@ class UserTest extends TestCase
         $this->assertTrue($user->notify('Hello'));
     }
 
+    /**
+     * Test function with advanced mock object creation (overriding of methods from class passed in mockBuilder method).
+     */
     public function testCannotNotifyUserWithNoEmail()
     {
         $user = new user();
