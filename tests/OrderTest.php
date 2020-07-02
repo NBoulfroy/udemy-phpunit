@@ -13,7 +13,7 @@ namespace Tests;
 
 use PHPUnit\Framework\TestCase;
 use Order;
-use \Mockery;
+use Mockery;
 
 require 'vendor/autoload.php';
 
