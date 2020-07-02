@@ -30,6 +30,8 @@ class Order
      *
      * @param PaymentGateway $gateway
      * @param int            $amount
+     *
+     * @return void
      */
     public function __construct(PaymentGateway $gateway, $amount = 0)
     {
