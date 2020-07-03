@@ -42,7 +42,7 @@ class Article
     public function __construct(string $title = null, string $content = null)
     {
         $this->title = $title;
-        $this->slug = (null !== $title) ? str_replace(' ', '_', $this->title) : null;
+        $this->slug = (null !== $title) ? preg_replace('/\s+/', '_', strtolower($this->title)) : null;
         $this->content = $content;
     }
 
@@ -58,7 +58,7 @@ class Article
         $this->title = $title;
 
         // Generate article's slug from article's title
-        $this->slug = str_replace(' ', '_', $title);
+        $this->slug = preg_replace('/\s+/', '_', strtolower($title));
 
         return $this;
     }
