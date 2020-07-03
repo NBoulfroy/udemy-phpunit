@@ -6,7 +6,3 @@
 /basics/vendor/
 /tdd/vendor/
 ###< Composer ###
-
-###> phpunit/phpunit ###
-/.phpunit.result.cache
-###< phpunit/phpunit ###
