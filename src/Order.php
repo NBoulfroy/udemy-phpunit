@@ -6,11 +6,25 @@
  * @File    : Order.php
  * @Author  : BOULFROY Nicolas
  * @Create  : 2020/06/30
- * @Update  : 2020/07/01
+ * @Update  : 2020/07/03
  */
 
 class Order
 {
+    /**
+     * Quantity.
+     *
+     * @var int $quantity
+     */
+    public $quantity;
+
+    /**
+     * Unit price.
+     *
+     * @var float $unitPrice
+     */
+    public $unitPrice;
+
     /**
      * Amount.
      *
@@ -28,24 +42,25 @@ class Order
     /**
      * Order constructor.
      *
-     * @param PaymentGateway $gateway
-     * @param int            $amount
+     * @param int   $quantity Quantity
+     * @param float $unitPrice Unit price
      *
      * @return void
      */
-    public function __construct(PaymentGateway $gateway, $amount = 0)
+    public function __construct(int $quantity, float $unitPrice)
     {
-        $this->gateway = $gateway;
-        $this->amount = $amount;
+        $this->quantity = $quantity;
+        $this->unitPrice = $unitPrice;
+        $this->amount = $quantity * $unitPrice;
     }
 
     /**
      * Process the order.
      *
-     * @return bool
+     * @return bool|null
      */
-    public function process(): bool
+    public function process(PaymentGateway $gateway): ?bool
     {
-        return $this->gateway->charge($this->amount);
+        return $gateway->charge($this->amount);
     }
 }
