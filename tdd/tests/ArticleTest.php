@@ -63,9 +63,9 @@ class ArticleTest extends TestCase
 
     public function testSlugHasWhitespaceReplacedBySingleUnderscore()
     {
-        $this->article->setTitle('An    example    \n    article');
+        $this->article->setTitle("An    example    \n    article");
 
-        $this->assertEquals('an_example_title', $this->article->getSlug());
+        $this->assertEquals('an_example_article', $this->article->getSlug());
     }
 
     public function testGetSlugIsNotDefined()
