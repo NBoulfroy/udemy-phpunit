@@ -3,7 +3,8 @@
 ###< PhpStorm ###
 
 ###> Composer ###
-/vendor/
+/basics/vendor/
+/tdd/vendor/
 ###< Composer ###
 
 ###> phpunit/phpunit ###
