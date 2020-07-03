@@ -35,12 +35,12 @@ class OrderTest extends TestCase
         $gateway
             ->expects($this->once())
             ->method('charge')
-            ->with($this->equalTo(200))
+            ->with($this->equalTo(600))
             ->willReturn(true);
 
-        $order = new Order($gateway, 200);
+        $order = new Order(200, 3);
 
-        $this->assertTrue($order->process());
+        $this->assertTrue($order->process($gateway));
     }
 
     /**
@@ -53,12 +53,31 @@ class OrderTest extends TestCase
         $gateway = Mockery::mock('PaymentGateway');
         $gateway->shouldReceive('charge')
             ->once()
-            ->with(200)
+            ->with(300)
             ->andReturn(true)
         ;
 
-        $order = new Order($gateway, 200);
+        $order = new Order(200, 1.5);
 
-        $this->assertTrue($order->process());
+        $this->assertTrue($order->process($gateway));
+    }
+
+    /**
+     * Function test what happened after the code and the test is called and not before.
+     */
+    public function testOrderIsProcessedUsingUsingSpy()
+    {
+        $order = new Order(3, 1.99);
+
+        $this->assertEquals(5.97, $order->amount);
+
+        $gatewaySpy = Mockery::spy('PaymentGateway');
+
+        $order->process($gatewaySpy);
+
+        $gatewaySpy->shouldHaveReceived('charge')
+            ->once()
+            ->with(5.97)
+        ;
     }
 }
