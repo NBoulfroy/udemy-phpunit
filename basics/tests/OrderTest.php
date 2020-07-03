@@ -6,13 +6,13 @@
  * @File    : OrderTest.php
  * @Author  : BOULFROY Nicolas
  * @Create  : 2020/06/30
- * @Update  : 2020/07/02
+ * @Update  : 2020/07/03
  */
 
 namespace Tests;
 
 use PHPUnit\Framework\TestCase;
-use Order;
+use Basic\Order;
 use Mockery;
 
 require 'vendor/autoload.php';
@@ -29,7 +29,7 @@ class OrderTest extends TestCase
      */
     public function testOrderIsProcessed()
     {
-        $gateway = $this->getMockBuilder('PaymentGateway')
+        $gateway = $this->getMockBuilder('Basic\PaymentGateway')
             ->setMethods(['charge'])
             ->getMock();
         $gateway
@@ -50,7 +50,7 @@ class OrderTest extends TestCase
      */
     public function testOrderIsProcessedUsingMockery()
     {
-        $gateway = Mockery::mock('PaymentGateway');
+        $gateway = Mockery::mock('Basic\PaymentGateway');
         $gateway->shouldReceive('charge')
             ->once()
             ->with(300)
@@ -71,7 +71,7 @@ class OrderTest extends TestCase
 
         $this->assertEquals(5.97, $order->amount);
 
-        $gatewaySpy = Mockery::spy('PaymentGateway');
+        $gatewaySpy = Mockery::spy('Basic\PaymentGateway');
 
         $order->process($gatewaySpy);
 

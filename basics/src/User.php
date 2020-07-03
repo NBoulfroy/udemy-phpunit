@@ -6,8 +6,10 @@
  * @File    : User.php
  * @Author  : BOULFROY Nicolas
  * @Create  : 2020/05/22
- * @Update  : 2020/06/12
+ * @Update  : 2020/07/03
  */
+
+namespace Basic;
 
 class User
 {

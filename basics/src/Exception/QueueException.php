@@ -6,9 +6,10 @@
  * @File    : QueueException.php
  * @Author  : BOULFROY Nicolas
  * @Create  : 2020/06/19
+ * @Update  : 2020/07/03
  */
 
-namespace Exception;
+namespace Basic\Exception;
 
 use \Exception;
 

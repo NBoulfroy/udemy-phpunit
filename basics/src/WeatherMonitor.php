@@ -6,7 +6,10 @@
  * @File    : WeatherMonitor.php
  * @Author  : BOULFROY Nicolas
  * @Create  : 2020/07/02
+ * @Update  : 2020/07/03
  */
+
+namespace Basic;
 
 class WeatherMonitor
 {

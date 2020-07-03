@@ -6,8 +6,10 @@
  * @File    : Functions.php
  * @Author  : BOULFROY Nicolas
  * @Create  : 2020/05/22
- * @Create  : 2020/06/12
+ * @Create  : 2020/07/03
  */
+
+namespace Basic;
 
 class Functions
 {

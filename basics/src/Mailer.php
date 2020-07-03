@@ -6,9 +6,12 @@
  * @File    : Mailer.php
  * @Author  : BOULFROY Nicolas
  * @Create  : 2020/06/26
+ * @Update  : 2020/07/03
  */
 
-use Exception\MailerException;
+namespace Basic;
+
+use Basic\Exception\MailerException;
 
 class Mailer
 {

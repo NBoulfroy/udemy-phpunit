@@ -1,11 +1,17 @@
 <?php
 /**
- * Queue
+ * Queue class.
  *
- * A first-in, first-out data structure
+ * @Project : udemy-phpunit
+ * @File    : MailerException.php
+ * @Author  : BOULFROY Nicolas
+ * @Create  : 2020/06/19
+ * @Update  : 2020/07/03
  */
 
-use Exception\QueueException;
+namespace Basic;
+
+use Basic\Exception\QueueException;
 
 class Queue
 {

@@ -9,6 +9,8 @@
  * @Update  : 2020/07/03
  */
 
+namespace Basic;
+
 class Order
 {
     /**

@@ -10,8 +10,8 @@
 
 namespace Test;
 
-use TemperatureService;
-use WeatherMonitor;
+use Basic\TemperatureService;
+use Basic\WeatherMonitor;
 use PHPUnit\Framework\TestCase;
 use Mockery;
 

@@ -6,13 +6,13 @@
  * @File    : FunctionsTest.php
  * @Author  : BOULFROY Nicolas
  * @Create  : 2020/05/22
- * @Create  : 2020/06/12
+ * @Create  : 2020/07/03
  */
 
 namespace Tests;
 
 use PHPUnit\Framework\TestCase;
-use Functions;
+use Basic\Functions;
 
 require 'vendor/autoload.php';
 

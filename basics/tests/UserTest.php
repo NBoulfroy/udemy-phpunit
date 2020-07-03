@@ -6,15 +6,15 @@
  * @File    : UserTest.php
  * @Author  : BOULFROY Nicolas
  * @Create  : 2020/05/22
- * @Update  : 2020/06/30
+ * @Update  : 2020/07/03
  */
 
 namespace Tests;
 
-use Exception\MailerException;
-use User;
+use Basic\Exception\MailerException;
+use Basic\User;
 use PHPUnit\Framework\TestCase;
-use Mailer;
+use Basic\Mailer;
 
 require 'vendor/autoload.php';
 

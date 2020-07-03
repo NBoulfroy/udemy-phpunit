@@ -6,13 +6,14 @@
  * @File    : QueueTest.php
  * @Author  : BOULFROY Nicolas
  * @Create  : 2020/06/19
+ * @Update  : 2020/07/03
  */
 
 require 'vendor/autoload.php';
 
 use PhpUnit\Framework\TestCase;
-use Queue;
-use Exception\QueueException;
+use Basic\Queue;
+use Basic\Exception\QueueException;
 
 class QueueTest extends TestCase
 {
