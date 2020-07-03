@@ -1,6 +1,6 @@
 <?xml version="1.0" encoding="UTF-8" ?>
 <!-- Defines basic options, it is possible to set bootstrap="vendor/autoload.php" in attributes. -->
-<phpunit colors="true" verbose="true">
+<phpunit colors="true" verbose="true" cacheResult="false">
     <!-- Defines where tests are -->
     <testsuite name="Test suite">
         <!-- Defines specific file extension with "suffix" attribute, value by default "Test.php". -->
