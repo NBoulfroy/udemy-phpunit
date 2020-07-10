@@ -57,8 +57,15 @@ class Article
     {
         $this->title = $title;
 
-        // Generates article's slug from article's title
-        $slug = preg_replace('/\s+/', '_', strtolower($title));
+        // All letters passes in lower case.
+        $slug = strtolower($title);
+
+        // Replaces white spaces to "_".
+        $slug = preg_replace('/\s+/', '_', $slug);
+
+        // Replaces non letters in string to ''.
+        $slug = preg_replace('/[^\w]/', '', $slug);
+
         // Deletes "_" at the beginning and at the end.
         $this->slug = trim($slug, '_');
 
