@@ -57,8 +57,10 @@ class Article
     {
         $this->title = $title;
 
-        // Generate article's slug from article's title
-        $this->slug = preg_replace('/\s+/', '_', strtolower($title));
+        // Generates article's slug from article's title
+        $slug = preg_replace('/\s+/', '_', strtolower($title));
+        // Deletes "_" at the beginning and at the end.
+        $this->slug = trim($slug, '_');
 
         return $this;
     }
