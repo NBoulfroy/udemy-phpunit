@@ -68,6 +68,13 @@ class ArticleTest extends TestCase
         $this->assertEquals('an_example_article', $this->article->getSlug());
     }
 
+    public function testSlugDoesNotStartOrEndWithAnUnderscore()
+    {
+        $this->article->setTitle(" An example article ");
+
+        $this->assertEquals('an_example_article', $this->article->getSlug());
+    }
+
     public function testGetSlugIsNotDefined()
     {
         $this->assertNull($this->article->getSlug());
