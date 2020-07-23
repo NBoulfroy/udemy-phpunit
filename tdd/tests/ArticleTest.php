@@ -75,6 +75,13 @@ class ArticleTest extends TestCase
         $this->assertEquals('an_example_article', $this->article->getSlug());
     }
 
+    public function testSlugDoesNotHaveAnyNonWordCharacters()
+    {
+        $this->article->setTitle("Read! This! Now!");
+
+        $this->assertEquals('read_this_now', $this->article->getSlug());
+    }
+
     public function testGetSlugIsNotDefined()
     {
         $this->assertNull($this->article->getSlug());
