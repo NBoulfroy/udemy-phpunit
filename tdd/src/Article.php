@@ -57,7 +57,7 @@ class Article
     {
         $this->title = $title;
 
-        // All letters passes in lower case.
+        // Passes all letters in lower case.
         $slug = strtolower($title);
 
         // Replaces white spaces to "_".
