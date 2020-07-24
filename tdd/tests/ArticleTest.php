@@ -96,6 +96,11 @@ class ArticleTest extends TestCase
         $this->assertEquals('My new article about my job', $this->article->getContent());
     }
 
+    /**
+     * Provides data for test method.
+     *
+     * @return array
+     */
     public function titleProvider()
     {
         return [

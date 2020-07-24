@@ -6,13 +6,13 @@
  * @File    : ItemTest.php
  * @Author  : BOULFROY Nicolas
  * @Create  : 2020/07/24
- * @Update  :
  */
 
 namespace Tdd\Tests;
 
 use PHPUnit\Framework\TestCase;
 use Tdd\Item;
+use Tdd\ItemChild;
 
 class ItemTest extends TestCase
 {
@@ -23,10 +23,21 @@ class ItemTest extends TestCase
         $this->assertNotEmpty($item->getDescription());
     }
 
+    /**
+     * First method to test protected methods from an object : creates an inheritance object which change the
+     * method type.
+     */
     public function testIdIsInteger()
     {
-        $item = new Item();
+        $item = new ItemChild();
 
         $this->assertIsInt($item->getID());
+    }
+
+    public function testTokenIsAString()
+    {
+        $item = new ItemChild();
+
+        $this->assertIsString($item->getToken());
     }
 }
