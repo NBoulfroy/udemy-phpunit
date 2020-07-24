@@ -61,37 +61,9 @@ class ArticleTest extends TestCase
         $this->assertInstanceOf(Article::class, $this->article->setSlug('an_amazing_title'));
     }
 
-    public function testSlugHasWhitespaceReplacedBySingleUnderscore()
-    {
-        $this->article->setTitle("An    example    \n    article");
-
-        $this->assertEquals('an_example_article', $this->article->getSlug());
-    }
-
-    public function testSlugDoesNotStartOrEndWithAnUnderscore()
-    {
-        $this->article->setTitle(" An example article ");
-
-        $this->assertEquals('an_example_article', $this->article->getSlug());
-    }
-
-    public function testSlugDoesNotHaveAnyNonWordCharacters()
-    {
-        $this->article->setTitle("Read! This! Now!");
-
-        $this->assertEquals('read_this_now', $this->article->getSlug());
-    }
-
     public function testGetSlugIsNotDefined()
     {
         $this->assertNull($this->article->getSlug());
-    }
-
-    public function testGetSlugIsDefined()
-    {
-        $this->article->setTitle('a title');
-
-        $this->assertEquals('a_title', $this->article->getSlug());
     }
 
     public function testSetContent()
@@ -113,7 +85,7 @@ class ArticleTest extends TestCase
         $this->assertEquals('My new article about my job', $this->article->getContent());
     }
 
-    public function testContruct()
+    public function testConstruct()
     {
         $this->article = new Article('a title', 'My new article about my job');
 
@@ -122,4 +94,31 @@ class ArticleTest extends TestCase
         $this->assertEquals('a_title', $this->article->getSlug());
         $this->assertEquals('My new article about my job', $this->article->getContent());
     }
+
+    public function titleProvider()
+    {
+        return [
+            'Title has whitespaces replaces by single underscore' =>
+                ["An    example    \n    article", 'an_example_article'],
+            'Title does not start or end with an underscore' =>
+                [' An example article ', 'an_example_article'],
+            'Title does not have non word characters' =>
+                ['Read! This! Now!', 'read_this_now'],
+            'Title has spaces replaced by underscores' =>
+                ['a title', 'a_title'],
+        ];
+    }
+
+    /**
+     * @param string $title - Article's title
+     * @param string $slug - Expected article's slug
+     *
+     * @dataProvider titleProvider
+     */
+    public function testSlug(string $title, string $slug)
+    {
+        $this->article->setTitle($title);
+        $this->assertEquals($slug, $this->article->getSlug());
+    }
+
 }
