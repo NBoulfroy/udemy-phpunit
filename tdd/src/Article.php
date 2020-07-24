@@ -6,6 +6,7 @@
  * @File    : Article.php
  * @Author  : BOULFROY Nicolas
  * @Create  : 2020/07/03
+ * @Update  : 2020/07/24
  */
 
 namespace Tdd;

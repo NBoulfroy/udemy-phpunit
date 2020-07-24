@@ -6,6 +6,7 @@
  * @File    : ArticleTest.php
  * @Author  : BOULFROY Nicolas
  * @Create  : 2020/07/03
+ * @Update  : 2020/07/24
  */
 
 namespace Tdd\Tests;
@@ -120,5 +121,4 @@ class ArticleTest extends TestCase
         $this->article->setTitle($title);
         $this->assertEquals($slug, $this->article->getSlug());
     }
-
 }
