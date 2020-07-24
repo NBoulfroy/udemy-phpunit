@@ -12,6 +12,9 @@ namespace Tdd;
 
 class ItemChild extends Item
 {
+    /**
+     * @return int
+     */
     public function getID()
     {
         return parent::getID();
