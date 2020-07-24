@@ -1,6 +1,6 @@
 <?php
 /**
- *
+ * ItemChild class.
  *
  * @Project : udemy-phpunit
  * @File    : ItemChild.php
