@@ -13,6 +13,8 @@ namespace Tdd\Tests;
 use PHPUnit\Framework\TestCase;
 use Tdd\Item;
 use Tdd\ItemChild;
+use \ReflectionClass;
+use \ReflectionException;
 
 class ItemTest extends TestCase
 {
@@ -24,8 +26,7 @@ class ItemTest extends TestCase
     }
 
     /**
-     * First method to test protected methods from an object : creates an inheritance object which change the
-     * method type.
+     * First method to test protected methods from an object : using inheritance.
      */
     public function testIdIsInteger()
     {
@@ -34,10 +35,24 @@ class ItemTest extends TestCase
         $this->assertIsInt($item->getID());
     }
 
+    /**
+     * Second method to test private methods from an object : using Reflection class.
+     *
+     * @throws ReflectionException
+     */
     public function testTokenIsAString()
     {
-        $item = new ItemChild();
+        $item = new Item();
 
-        $this->assertIsString($item->getToken());
+        // Creates a reflection class.
+        $reflector = new ReflectionClass(Item::class);
+        // Defines method concerned by this manipulation.
+        $method = $reflector->getMethod('getToken');
+        // Defines new method's accessing.
+        $method->setAccessible(true);
+        // Calls method with his returns value.
+        $result = $method->invoke($item);
+
+        $this->assertIsString($result);
     }
 }
