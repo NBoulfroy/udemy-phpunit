@@ -56,6 +56,11 @@ class ItemTest extends TestCase
         $this->assertIsString($result);
     }
 
+    /**
+     * Tests private method with one parameter (use invokeArgs for multiple parameters).
+     *
+     * @throws ReflectionException
+     */
     public function testPrefixedTokenStartsWithPrefix()
     {
         $item = new Item();
