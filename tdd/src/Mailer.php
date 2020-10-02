@@ -6,7 +6,7 @@
  * @File    : Mailer.php
  * @Author  : Hollingworth Dave
  * @Create  : ?
- * @Update  : 2020/07/24
+ * @Update  : 2020/10/02
  */
 
 namespace Tdd;
@@ -23,14 +23,33 @@ class Mailer
     /**
      * Send a message
      *
-     * @param string $email  Recipient email address
-     * @param string $message  Content of the message
-     *
-     * @throws InvalidArgumentException If $email is empty
+     * @param string $email Recipient email address
+     * @param string $message Content of the message
      *
      * @return boolean
+     *
+     * @throws InvalidArgumentException If $email is empty
      */
     public static function send(string $email, string $message): bool
+    {
+        if (empty($email)) {
+            throw new InvalidArgumentException;
+        }
+
+        echo "Send '$message' to $email";
+
+        return true;
+    }
+
+    /**
+     * @param string $email Recipient email address
+     * @param string $message Content of the message
+     *
+     * @return bool
+     *
+     * @throws InvalidArgumentException If $email is empty
+     */
+    public function send_2(string $email, string $message): bool
     {
         if (empty($email)) {
             throw new InvalidArgumentException;
